@@ -7,7 +7,11 @@ def main():
     import random
     from fake_useragent import UserAgent
 
-    urls = tiktok_links = [line.strip() for line in open("./video_urls.txt", "r").readlines()]
+    current_dir = os.getcwd()
+    parent_dir = os.path.dirname(current_dir)
+    file_path = os.path.join(parent_dir, 'video_urls.txt')
+
+    urls = [line.strip() for line in open(rf"{file_path}", "r").readlines()]
     
     user_agent = UserAgent(platforms="pc").random
     views_sent = 0
